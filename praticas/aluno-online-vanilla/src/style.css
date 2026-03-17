@@ -90,7 +90,7 @@
   
   /* --- DESKTOP (Min-width: 768px) --- */
   
-  @media (width <= 768px) {
+  @media (width >= 768px) {
     .app-container {
       flex-direction: row; /* Sidebar ao lado do conteúdo */
       min-height: 100vh;
