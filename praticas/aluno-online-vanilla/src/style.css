@@ -127,7 +127,7 @@ Tela de login
 */
 
 /* Centraliza o corpo APENAS na tela de login */
-body:has(#loginForm) {
+body:has(#login-form) {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -137,7 +137,7 @@ body:has(#loginForm) {
 }
 
 /* Estiliza o <main> APENAS quando ele contém o formulário */
-main:has(#loginForm) {
+main:has(#login-form) {
   background-color: #fff;
   width: 100%;
   max-width: 450px;
@@ -148,20 +148,20 @@ main:has(#loginForm) {
 }
 
 /* Elementos internos do Login */
-#loginForm {
+#login-form {
   display: flex;
   flex-direction: column;
   text-align: left;
   margin-top: 20px;
 }
 
-#loginForm label {
+#login-form label {
   font-weight: bold;
   margin-bottom: 5px;
   display: block;
 }
 
-#loginForm input {
+#login-form input {
   width: 100%;
   padding: 12px;
   border: 1px solid var(--cor-borda);
@@ -170,7 +170,7 @@ main:has(#loginForm) {
   font-size: 1rem;
 }
 
-#loginForm .error-message {
+#login-form .error-message {
   color: var(--cor-erro);
   font-size: 0.85rem;
   min-height: 20px;
@@ -192,7 +192,7 @@ main:has(#loginForm) {
 }
 
 /* Footer específico da página de login */
-body:has(#loginForm) footer {
+body:has(#login-form) footer {
   position: absolute;
   bottom: 20px;
   font-size: 0.85rem;
