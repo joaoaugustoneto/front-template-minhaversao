@@ -1,0 +1,38 @@
+.page-title {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.card {
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.card h3 {
+  background-color: var(--cor-card-header);
+  padding: 12px 15px;
+  font-size: 1rem;
+}
+
+.card ul {
+  padding: 15px;
+  list-style: none;
+}
+
+.card ul li {
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+@media (min-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
