@@ -1,0 +1,98 @@
+/* Mobile First: Estilos Base */
+.page-container {
+  padding: 24px;
+  width: 100%;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.page-header h1 {
+  font-size: 1.8rem;
+  color: #212529;
+}
+
+.user-avatar svg {
+  width: 40px;
+  height: 40px;
+  color: #000;
+}
+
+.page-title h2 {
+  font-size: 1.2rem;
+  color: #343a40;
+  margin-bottom: 24px;
+}
+
+/* Estilos das Tabelas (Cards) */
+.semester-card {
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  overflow: hidden; /* Garante que as bordas da tabela fiquem arredondadas acompanhando o pai */
+}
+
+.semester-header {
+  background-color: #e9ecef;
+  padding: 16px;
+}
+
+.semester-header h3 {
+  font-size: 1.1rem;
+  margin: 0;
+  color: #212529;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto; /* Permite scroll horizontal em telas muito pequenas se necessário */
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.data-table th,
+.data-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #dee2e6;
+  color: #212529;
+}
+
+.data-table th {
+  background-color: #e9ecef;
+  font-weight: bold;
+}
+
+/* Ajustes das colunas de valores */
+.data-table th:nth-child(2),
+.data-table td:nth-child(2),
+.data-table th:nth-child(3),
+.data-table td:nth-child(3) {
+  /* Centraliza colunas menores caso desejado, ou mantenha alinhado à esquerda como na imagem */
+  border-left: 1px solid #dee2e6; 
+}
+
+/* Remove a borda da última linha da tabela para ficar liso no card */
+.data-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Telas a partir de 768px (Tablets/Desktops) */
+@media (min-width: 768px) {
+  .page-container {
+    padding: 40px;
+    max-width: 900px; /* Limita a largura em telas muito grandes para leitura melhor */
+  }
+
+  .page-header h1 {
+    font-size: 2.2rem;
+  }
+}
