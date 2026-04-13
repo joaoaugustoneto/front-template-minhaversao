@@ -1,75 +1,31 @@
-import './ListagemDeNotas.css';
+import Card from '../components/Card';
+import DataTable from '../components/DataTable';
+import './PagePadrao.css';
 
 function ListagemDeNotas() {
+  const headers = ["Disciplina", "A1", "A2", "Média", "Situação"];
+  
+  const data2026_1 = [
+    ["BI e Data Warehousing", "-", "-", "-", "Em curso"],
+    ["Construção de Frontend", "-", "-", "-", "Em curso"]
+  ];
+
+  const data2025_2 = [
+    ["Construção de Backend", "9.0", "8.5", "8.75", "Aprovado"],
+    ["Estrutura de Dados", "7.5", "8.0", "7.75", "Aprovado"]
+  ];
+
   return (
     <div className="page-container">
       <h2 className="page-title">Histórico de Notas por Semestre</h2>
       
-      <section className="semester-card">
-        <h3>2026.1</h3>
-        <div className="table-responsive">
-          <table className="data-table">
-            <thead>
-              <tr>
-                <th>Disciplina</th>
-                <th>A1</th>
-                <th>A2</th>
-                <th>Média</th>
-                <th>Situação</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>BI e Data Warehousing</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>Em curso</td>
-              </tr>
-              <tr>
-                <td>Construção de Frontend</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>Em curso</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
+      <Card title="2026.1">
+        <DataTable headers={headers} data={data2026_1} />
+      </Card>
 
-      <section className="semester-card">
-        <h3>2025.2</h3>
-        <div className="table-responsive">
-          <table className="data-table">
-            <thead>
-              <tr>
-                <th>Disciplina</th>
-                <th>A1</th>
-                <th>A2</th>
-                <th>Média</th>
-                <th>Situação</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Construção de Backend</td>
-                <td>9.0</td>
-                <td>8.5</td>
-                <td>8.75</td>
-                <td>Aprovado</td>
-              </tr>
-              <tr>
-                <td>Estrutura de Dados</td>
-                <td>7.5</td>
-                <td>8.0</td>
-                <td>7.75</td>
-                <td>Aprovado</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
+      <Card title="2025.2">
+        <DataTable headers={headers} data={data2025_2} />
+      </Card>
     </div>
   );
 }
