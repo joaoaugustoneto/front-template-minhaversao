@@ -9,7 +9,7 @@ function App() {
   return (
     <Layout>
       {/* Altere o componente aqui dentro para visualizar as outras páginas */}
-      <ListagemDeRequerimentos />
+      <Dashboard />
     </Layout>
   );
 }
