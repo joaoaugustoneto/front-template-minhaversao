@@ -1,0 +1,26 @@
+.page-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /*animation: fadeIn 0.3s ease-in-out; animação que eu fiz*/
+  }
+  
+  .page-title {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: var(--cor-texto);
+    font-weight: 600;
+  }
+
+  /*Tentando fazer uma animação
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }*/
+  

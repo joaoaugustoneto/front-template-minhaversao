@@ -1,0 +1,21 @@
+.generic-card {
+    background-color: #ffffff;
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    margin-bottom: 24px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04); 
+  }
+  
+  .generic-card h3 {
+    background-color: var(--cor-card-header);
+    padding: 16px 20px; 
+    font-size: 1rem;
+    font-weight: 600; 
+    color: var(--cor-texto);
+    border-bottom: 1px solid var(--cor-borda);
+    margin: 0;
+  }
+  
+  .card-content {
+    padding: 0;
+  }
