@@ -1,0 +1,38 @@
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.input-group label {
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--cor-texto);
+  font-size: 0.95rem;
+}
+
+.input-group input {
+  padding: 12px 15px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+
+.input-group input:focus {
+  border-color: #2563eb; /* Azul para quando o campo estiver selecionado */
+}
+
+/* Classe aplicada quando ocorre falha na validação */
+.input-group input.input-error {
+  border-color: var(--cor-erro);
+}
+
+.error-message {
+  color: var(--cor-erro);
+  font-size: 0.85rem;
+  margin-top: 6px;
+}
