@@ -4,11 +4,14 @@ import './Layout.css';
 
 function Layout({ children }) {
   return (
-    <div className="app-container">
+    <div className="layout-container">
       <Sidebar />
       <div className="main-content">
         <Topbar />
-        <main>{children}</main>
+        <main className="page-content">
+          {/* Aqui é onde as páginas (Dashboard, Notas, etc) vão aparecer */}
+          {children}
+        </main>
       </div>
     </div>
   );
