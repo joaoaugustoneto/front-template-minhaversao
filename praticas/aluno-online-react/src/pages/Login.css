@@ -1,0 +1,64 @@
+/* Container que ocupa a tela toda com fundo cinza */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--cor-fundo);
+  width: 100%;
+}
+
+/* O cartão branco centralizado */
+.login-card {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  border: 1px solid var(--cor-borda);
+}
+
+.login-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.login-logo {
+  width: 38px;
+}
+
+.login-header h1 {
+  font-size: 1.6rem;
+  color: var(--cor-texto);
+  margin: 0;
+}
+
+.login-subtitle {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+/* Botão principal de login */
+.btn-login {
+  width: 100%;
+  padding: 14px;
+  background-color: #2563eb; /* Azul característico de botões primários */
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 10px;
+}
+
+.btn-login:hover {
+  background-color: #1d4ed8;
+}
