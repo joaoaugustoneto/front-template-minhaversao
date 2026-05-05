@@ -5,6 +5,7 @@ import Perfil from "./pages/Perfil";
 import Settings from "./pages/Setings";
 import Erro from "./pages/Erro.jsx";
 import Layout from "./layout/Layout.jsx";
+import Login from "./pages/Login.jsx";
 
 function App () {
   return (
@@ -12,10 +13,11 @@ function App () {
       <Route element={<Layout/>}>
         <Route path= "/" element={<Home />} />
         <Route path= "/about" element={<About />} />
-        <Route path= "/perfil" element={<Perfil />} />
+        <Route path= "/perfil/:id" element={<Perfil />} />
         <Route path= "/settings" element={<Settings />} />
         <Route path= "/*" element={<Erro />}/>
       </Route>
+      <Route path="/login" element={<Login/>}/>
     </Routes>
   );
 }  
