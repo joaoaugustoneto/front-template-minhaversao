@@ -1,60 +1,45 @@
-function Menu(){
-    // Captura a URL atual para sabermos qual link deve ficar destacado
-    const currentPath = window.location.pathname;
-    
-    return (
-        <>
-        <nav className="sidebar-nav">
+import { NavLink } from 'react-router-dom';
+
+function Menu() {
+  return (
+    <>
+      <nav className="sidebar-nav">
         <ul>
           <li>
-            <a 
-              href="/dashboard" 
-              className={currentPath === '/dashboard' ? 'active' : ''}
-            >
+            <NavLink to="/dashboard">
               Dashboard
-            </a>
+            </NavLink>
           </li>
           <li>
-            <a 
-              href="/notas" 
-              className={currentPath === '/notas' ? 'active' : ''}
-            >
+            <NavLink to="/notas">
               Notas
-            </a>
+            </NavLink>
           </li>
           <li>
-            <a 
-              href="/faltas" 
-              className={currentPath === '/faltas' ? 'active' : ''}
-            >
+            <NavLink to="/faltas">
               Faltas
-            </a>
+            </NavLink>
           </li>
           <li>
-            <a 
-              href="/boletos" 
-              className={currentPath === '/boletos' ? 'active' : ''}
-            >
+            <NavLink to="/boletos">
               Boletos
-            </a>
+            </NavLink>
           </li>
           <li>
-            <a 
-              href="/requerimentos" 
-              className={currentPath === '/requerimentos' ? 'active' : ''}
-            >
+            <NavLink to="/requerimentos">
               Requerimentos
-            </a>
+            </NavLink>
           </li>
         </ul>
       </nav>
 
-      {/* Rodapé da Sidebar */}
       <div className="sidebar-footer">
-        <a href="/login" className="btn-sair">Sair</a>
+        <NavLink to="/login" className="btn-sair">
+          Sair
+        </NavLink>
       </div>
-      </>
-        )
+    </>
+  );
 }
 
 export default Menu;

@@ -1,22 +1,20 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; 
 import Input from '../components/Input';
 import logo from '../assets/learn.svg';
 import './Login.css';
 
 function Login() {
-  // 1. Estados para armazenar os valores digitados
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  
-  // 2. Estado para armazenar as mensagens de erro
   const [errors, setErrors] = useState({ email: '', password: '' });
 
-  // 3. Função de Validação
+  const navigate = useNavigate(); 
+
   const validate = () => {
     let isValid = true;
     const newErrors = { email: '', password: '' };
 
-    // Validação do E-mail
     if (!email) {
       newErrors.email = 'O e-mail é obrigatório';
       isValid = false;
@@ -25,7 +23,6 @@ function Login() {
       isValid = false;
     }
 
-    // Validação da Senha
     if (!password) {
       newErrors.password = 'A senha é obrigatória';
       isValid = false;
@@ -38,21 +35,17 @@ function Login() {
     return isValid;
   };
 
-  // 4. Função chamada ao enviar o formulário
-
   const handleSubmit = (event) => {
-    event.preventDefault(); // Impede o formulário de recarregar a página na hora de validar
+    event.preventDefault();
 
     if (validate()) {
-      // Se estiver tudo certo, altera a URL nativamente, o que causará o recarregamento pra página certa
-      window.location.href = '/dashboard'; 
+      navigate('/dashboard'); 
     }
   };
 
   return (
     <div className="login-container">
       <div className="login-card">
-        
         <header className="login-header">
           <img src={logo} alt="Logo Aluno Online" className="login-logo" />
           <h1>Aluno Online</h1>
@@ -83,7 +76,6 @@ function Login() {
 
           <button type="submit" className="btn-login">Entrar</button>
         </form>
-
       </div>
     </div>
   );
