@@ -1,16 +1,16 @@
-import Sidebar from './Sidebar';
-import Topbar from './Topbar';
+import { Outlet } from 'react-router-dom'; 
+import Sidebar from "./Sidebar"; 
+import Topbar from "./Topbar";
 import './Layout.css';
 
-function Layout({ children }) {
+function Layout() {
   return (
     <div className="layout-container">
       <Sidebar />
       <div className="main-content">
         <Topbar />
         <main className="page-content">
-          {/* Aqui é onde as páginas (Dashboard, Notas, etc) vão aparecer */}
-          {children}
+          <Outlet />
         </main>
       </div>
     </div>
