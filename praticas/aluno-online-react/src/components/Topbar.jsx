@@ -1,7 +1,10 @@
+import { useAuth } from '../contexts/AuthContext';
 import './Topbar.css';
 import avatar from '../assets/avatar.svg';
 
 function Topbar() {
+  const { usuario } = useAuth();
+
   return (
     <header className="topbar">
       <div className="menu-icon-mobile">
@@ -9,7 +12,8 @@ function Topbar() {
           <path d="M3 18H21V16H3V18ZM3 13H21V11H3V13ZM3 6V8H21V6H3Z" />
         </svg>
       </div>
-      <h1>Olá, Aluno!</h1>
+      
+      <h1>Olá, {usuario?.nome || 'Aluno'}</h1>
       <img src={avatar} alt="imagem do avatar" className="user-avatar" />
     </header>
   );

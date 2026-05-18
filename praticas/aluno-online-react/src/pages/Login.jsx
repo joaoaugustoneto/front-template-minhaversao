@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext'; 
 import Input from '../components/Input';
 import logo from '../assets/learn.svg';
 import './Login.css';
@@ -9,14 +10,15 @@ function Login() {
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({ email: '', password: '' });
 
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
+  const { login } = useAuth(); 
 
   const validate = () => {
     let isValid = true;
     const newErrors = { email: '', password: '' };
 
     if (!email) {
-      newErrors.email = 'O e-mail é obrigatório';
+      newErrors.email = 'O campo de email é obrigatório.';
       isValid = false;
     } else if (!/\S+@\S+\.\S+/.test(email)) {
       newErrors.email = 'Digite um e-mail válido';
@@ -24,7 +26,7 @@ function Login() {
     }
 
     if (!password) {
-      newErrors.password = 'A senha é obrigatória';
+      newErrors.password = 'O campo de senha é obrigatório.';
       isValid = false;
     } else if (password.length < 6) {
       newErrors.password = 'A senha deve ter no mínimo 6 caracteres';
@@ -39,7 +41,11 @@ function Login() {
     event.preventDefault();
 
     if (validate()) {
-      navigate('/dashboard'); 
+      // 3. Chamando a função global e salvando os dados do aluno
+      login({ nome: 'Aluno', email: email });
+      
+      // 4. Redirecionando para o Dashboard com segurança
+      navigate('/dashboard');
     }
   };
 
