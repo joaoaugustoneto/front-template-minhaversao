@@ -1,15 +1,15 @@
-import Menu from "../components/Menu";
 import { Outlet } from "react-router";
+import Menu from "../components/Menu"
 
-function Layout (){
+function Layout () {
     return (
         <>
-            <aside>
-                <Menu />
-            </aside>
-            <main>
-                <Outlet />
-            </main>
+        <aside>
+            <Menu />
+        </aside>
+        <main>
+            <Outlet/>
+        </main>
         </>
     )
 }
