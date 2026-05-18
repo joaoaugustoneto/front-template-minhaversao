@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext'; // 1. Importando o hook de autenticação
+import { useAuth } from '../hooks/useAuth'; // 1. Importando o hook de autenticação
 
 function Menu() {
   const { logout } = useAuth(); // 2. Pegando a função de logout do contexto global
