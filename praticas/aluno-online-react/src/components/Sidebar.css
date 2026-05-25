@@ -75,21 +75,25 @@
     margin-top: auto;
   }
 
-  .sidebar-footer a,
-  .sidebar nav ul li.sair a {
+  .sidebar-footer .btn-sair {
     display: block;
+    width: 100%;                /* Faz o botão ocupar toda a largura disponível */
+    background: transparent;    /* Remove o fundo cinza nativo do botão */
+    border: none;               /* Remove a borda padrão do botão */
+    font-family: inherit;       /* Herda a fonte padrão do seu projeto */
+    cursor: pointer;            /* Faz aparecer a mãozinha de clique */
+    
     padding: 12px 16px;
-    color: var(--cor-erro, #dc2626); /* Mantém a cor de erro */
+    color: var(--cor-erro, #dc2626); /* Mantém a sua cor de erro original */
     text-decoration: none;
-    font-weight: bold; /* Sair em Negrito, conforme solicitado */
+    font-weight: bold;          /* Mantém o Sair em Negrito solicitado */
     border-radius: 8px;
     transition: background-color 0.2s;
-    text-align: center; /* Centraliza o texto de sair */
+    text-align: center;         /* Centraliza o texto de sair */
   }
 
   /* Efeito ao passar o mouse no Sair */
-  .sidebar-footer a:hover,
-  .sidebar nav ul li.sair a:hover {
-    background-color: #fee2e2; /* Fundo vermelho bem claro para não ser agressivo */
+  .sidebar-footer .btn-sair:hover {
+    background-color: #fee2e2;  /* Seu fundo vermelho bem claro original */
   }
 }
