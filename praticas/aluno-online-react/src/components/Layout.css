@@ -1,4 +1,4 @@
-.app-container {
+.layout-container {
   display: flex;
   flex-direction: column;
 }
@@ -9,7 +9,7 @@
 }
 
 @media (min-width: 768px) {
-  .app-container {
+  .layout-container {
     flex-direction: row;
     min-height: 100vh;
   }
