@@ -1,5 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useAuth } from './hooks/useAuth';
+import { RequerimentoForm } from './forms/RequerimentoForm';
 import Login from './pages/Login';
 import Layout from './components/Layout';
 import Dashboard from './pages/Dashboard';
@@ -27,7 +28,10 @@ function App() {
             <Route path="notas" element={<ListagemDeNotas />} />
             <Route path="faltas" element={<ListagemDeFaltas />} />
             <Route path="boletos" element={<ListagemDeBoletos />} />
-            <Route path="requerimentos" element={<ListagemDeRequerimentos />} />
+            <Route path="requerimentos">
+              <Route index element={<ListagemDeRequerimentos />} />
+              <Route path="novo" element={<RequerimentoForm />} />
+            </Route>
           </Route>
           
           <Route path="/login" element={<Navigate to="/dashboard" replace />} />
