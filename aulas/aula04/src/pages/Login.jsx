@@ -1,23 +1,22 @@
 import { useNavigate } from "react-router";
-import { useAuth } from "../contexts/AuthContext";
+import { useAuthContext } from "../contexts/AuthContext";
 
-function Login () {
-    const {login} = useAuth();
-    const navigate = useNavigate ();
+function Login() {
+  const navigate = useNavigate();
 
-    const handleEntrar = () => {
-        login({username:"hiarley@iesb.edu", password:'123456'});
-        navigate("/")
-    }
+  const { login } = useAuthContext();
 
+  const handleEntrar = () => {
+    login({usuario: "jose@iesb.edu.br", senha: "123456"});
+    navigate("/");
+  }
 
-    return (
+  return (
     <>
-    <h1>Login</h1>
-    
-    <button onClick={handleEntrar}>Entrar</button>
+      <h1>Login</h1>
+      <button onClick={handleEntrar}>Entrar</button>
     </>
-
-)}
+  );
+}
 
 export default Login;

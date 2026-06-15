@@ -1,14 +1,20 @@
-/* eslint-disable react-refresh/only-export-components */
-import { createContext, useState, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 
+// cria o contexto
 const AuthContext = createContext();
 
+// cria o provedor
 function AuthProvider({ children }) {
-  const [usuario, setUsuario] = useState({});
   const [logado, setLogado] = useState(false);
+  const [usuario, setUsuario] = useState({});
 
-  const login = () => {
-    setUsuario({ nome: "Hiarley" });
+  const login = (dados) => {
+    // chamar a API passando dados
+    setUsuario({ 
+        id: 0, 
+        nome: "Jose", 
+        email: "jose@iesb.edu.br" 
+    });
     setLogado(true);
   };
 
@@ -19,13 +25,14 @@ function AuthProvider({ children }) {
 
   return (
     <AuthContext.Provider value={{ logado, usuario, login, logout }}>
+      {/* value =  estado compartilhado */}
       {children}
     </AuthContext.Provider>
   );
 }
 
-function useAuth() {
-  return useContext(AuthContext);
+function useAuthContext() {
+    return useContext(AuthContext);
 }
 
-export { useAuth, AuthProvider };
+export { useAuthContext, AuthProvider };

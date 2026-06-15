@@ -1,41 +1,37 @@
-import './style.css'
+import "./style.css";
 
-/* 
-    validar o formulario com as seguintes regras:
-        - matricula > 0 e obrigatoria
-        - senha tamanho > 6 caracteres e ogbrigatoria 
-*/
+const botao = document.querySelector("button");
 
-const matricula = document.querySelector("#matricula");
-const senha = document.querySelector("#senha");
-const botao = document.querySelector('button');
+botao.addEventListener("click", (e) => {
+  const matriculaInput = document.querySelector("#matricula");
+  const matriculaErro = document.querySelector("#matriculaErro");
+  const senhaInput = document.querySelector("#senha");
+  const senhaErro = document.querySelector("#senhaErro");
+ 
+  matriculaErro.textContent = '';
+  senhaErro.textContent = '';
 
+  if (matriculaInput.value == '') {
+    matriculaErro.textContent = 
+        "Matrícula é obrigatória";
+    return;
+  }
 
+  if (parseInt(matriculaInput.value) <= 0) {
+    matriculaErro.textContent = 
+        "Matricula deve ser um numero positivo";
+    return;
+  }
 
-botao.addEventListener('click', function(e){
-    const matriculaErro = document.querySelector("#matriculaErro");
-    const senhaErro = document.querySelector("#senhaErro");
+  if (senhaInput.value == '') {
+    senhaErro.textContent = "Senha é obrigatoria";
+    return;
+  }
 
-    matriculaErro.textContent = '';
-    senhaErro.textContent = '';
+  if (senhaInput.value.length < 8) {
+    senhaErro.textContent = 
+        "A Senha deve conter pelo menos 8 caracters";
+    return;
+  }
 
-    if (matricula.value == ''){
-        matriculaErro.textContent = 'Matricula é obrigatória';
-        return;
-    }
-
-    if (parseInt(matricula.value) <= 0 ) {
-        matriculaErro.textContent = "matricula deve ser um numero positivo";
-        return;
-    }
-
-    if (senha.value == '') {
-        senhaErro.textContent = 'Senha obrigatoria';
-        return;
-    }
-
-    if (senha.value.length < 8 ){
-        senhaErro.textContent = 'Senha tem que possuir 8 caracteres';
-        return;
-    }
 });
