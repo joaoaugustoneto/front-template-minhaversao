@@ -4,10 +4,12 @@ import DataTable from '../components/DataTable';
 import './PagePadrao.css';
 import { useNavigate } from 'react-router-dom';
 import { listarRequerimentos } from '../services/requerimentoService';
+import { useAuth } from '../hooks/useAuth';
 
 function ListagemDeRequerimentos() {
   const headers = ["Protocolo", "Tipo de Requerimento", "Data", "Status"];
   const navigate = useNavigate();
+  const { logout } = useAuth();
   const [requerimentos, setRequerimentos] = useState([]);
 
   useEffect(() => {
@@ -16,11 +18,14 @@ function ListagemDeRequerimentos() {
         const dados = await listarRequerimentos();
         setRequerimentos(dados);
       } catch (error) {
+        if (error.status === 401) {
+          logout();
+        }
         console.error(error);
       }
     }
     carregarRequerimentos();
-  }, []);
+  }, [logout]);
 
   const data = requerimentos.map((req) => [
     req.protocolo,
