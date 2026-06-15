@@ -1,0 +1,12 @@
+{
+  "requerimentos": [
+    {
+      "id": "1",
+      "tipo": "matricula",
+      "descricao": "Solicito declaração de matrícula para fins de estágio.",
+      "data": "2026-06-15",
+      "status": "Em Análise",
+      "protocolo": "REQ-10293"
+    }
+  ]
+}

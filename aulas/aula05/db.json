@@ -11,6 +11,18 @@
       "nome": "Laranja Pera",
       "preco": "15,99",
       "unidade": "Un"
+    },
+    {
+      "nome": "nome ",
+      "preco": "10",
+      "unidade": "kg",
+      "id": "IrqJrL-9KRw"
+    },
+    {
+      "nome": "banana",
+      "preco": "9",
+      "unidade": "kg",
+      "id": "ziCJyfXdh2E"
     }
   ],
   "fornecedores": [],
