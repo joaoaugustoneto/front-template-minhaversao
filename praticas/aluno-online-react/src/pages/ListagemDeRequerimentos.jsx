@@ -1,17 +1,33 @@
+import { useState, useEffect } from 'react';
 import Card from '../components/Card';
 import DataTable from '../components/DataTable';
 import './PagePadrao.css';
 import { useNavigate } from 'react-router-dom';
+import { listarRequerimentos } from '../services/requerimentoService';
 
 function ListagemDeRequerimentos() {
   const headers = ["Protocolo", "Tipo de Requerimento", "Data", "Status"];
   const navigate = useNavigate();
+  const [requerimentos, setRequerimentos] = useState([]);
 
-  const data = [
-    ["REQ-10293", "Revisão de Menção", "01/04/2026", "Em Análise"],
-    ["REQ-10304", "Dispensa de Disciplina", "15/02/2026", "Deferido"],
-    ["REQ-10455", "Trancamento de Matrícula", "10/11/2025", "Indeferido"]
-  ];
+  useEffect(() => {
+    async function carregarRequerimentos() {
+      try {
+        const dados = await listarRequerimentos();
+        setRequerimentos(dados);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    carregarRequerimentos();
+  }, []);
+
+  const data = requerimentos.map((req) => [
+    req.protocolo,
+    req.tipo,
+    req.data,
+    req.status
+  ]);
 
   return (
     <div className="page-container">

@@ -1,6 +1,9 @@
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import './RequerimentoForm.css'; 
+import { cadastrarRequerimento } from '../services/requerimentoService';
+
+const gerarProtocolo = () => `REQ-${Math.floor(Math.random() * 90000) + 10000}`;
 
 export function RequerimentoForm() {
   const { register, handleSubmit, reset, formState: { errors } } = useForm({
@@ -13,9 +16,20 @@ export function RequerimentoForm() {
 
   const navigate = useNavigate();
 
-  const onSubmit = (data) => {
-    console.log('Requerimento enviado com sucesso!', data);
-    reset(); 
+  const onSubmit = async (data) => {
+    try {
+      const novoRequerimento = {
+        ...data,
+        status: "Em Análise",
+        protocolo: gerarProtocolo()
+      };
+      const resultado = await cadastrarRequerimento(novoRequerimento);
+      console.log('Requerimento enviado com sucesso!', resultado);
+      reset(); 
+      navigate('/requerimentos'); // Opcional: voltar para a listagem para ver o novo item
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
