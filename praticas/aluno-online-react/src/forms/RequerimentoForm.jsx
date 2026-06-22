@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import './RequerimentoForm.css'; 
 import { cadastrarRequerimento } from '../services/requerimentoService';
+import { useAuth } from '../hooks/useAuth';
 
 const gerarProtocolo = () => `REQ-${Math.floor(Math.random() * 90000) + 10000}`;
 
@@ -15,6 +16,7 @@ export function RequerimentoForm() {
   });
 
   const navigate = useNavigate();
+  const { logout } = useAuth();
 
   const onSubmit = async (data) => {
     try {
@@ -28,6 +30,9 @@ export function RequerimentoForm() {
       reset(); 
       navigate('/requerimentos'); // Opcional: voltar para a listagem para ver o novo item
     } catch (error) {
+      if (error.status === 401) {
+        logout();
+      }
       console.error(error);
     }
   };

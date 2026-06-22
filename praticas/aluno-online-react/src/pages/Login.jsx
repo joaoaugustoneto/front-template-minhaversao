@@ -4,18 +4,19 @@ import { useAuth } from '../hooks/useAuth';
 import Input from '../components/Input';
 import logo from '../assets/learn.svg';
 import './Login.css';
+import { login as authLogin } from '../services/authService';
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [errors, setErrors] = useState({ email: '', password: '' });
+  const [errors, setErrors] = useState({ email: '', password: '', general: '' });
 
   const navigate = useNavigate();
   const { login } = useAuth(); 
 
   const validate = () => {
     let isValid = true;
-    const newErrors = { email: '', password: '' };
+    const newErrors = { email: '', password: '', general: '' };
 
     if (!email) {
       newErrors.email = 'O campo de email é obrigatório.';
@@ -37,15 +38,17 @@ function Login() {
     return isValid;
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (validate()) {
-      // 3. Chamando a função global e salvando os dados do aluno
-      login({ nome: 'Aluno', email: email });
-      
-      // 4. Redirecionando para o Dashboard com segurança
-      navigate('/dashboard');
+      try {
+        const { usuario, token } = await authLogin(email, password);
+        login(usuario, token);
+        navigate('/dashboard');
+      } catch (error) {
+        setErrors(prev => ({ ...prev, general: error.message }));
+      }
     }
   };
 
@@ -60,6 +63,7 @@ function Login() {
         <p className="login-subtitle">Acesse sua conta</p>
 
         <form onSubmit={handleSubmit} noValidate>
+          {errors.general && <p className="error-message" style={{ marginBottom: '15px' }}>{errors.general}</p>}
           <Input
             label="E-mail"
             type="email"
